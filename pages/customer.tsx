@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../Components/Navbar'
-import ProductDashboard from '../Components/ProductDashboard'
 import LeftNav from '../Components/LeftNav'
+import CustomerDashboard from '../Components/CustomerDashboard'
 
 const HomePage = () => {
   return (
@@ -9,7 +9,7 @@ const HomePage = () => {
       <Navbar />
       <div className='w-full h-full flex'>
         <LeftNav />
-        <ProductDashboard />
+        <CustomerDashboard />
       </div>
     </>
   )
