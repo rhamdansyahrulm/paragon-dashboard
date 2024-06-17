@@ -9,7 +9,6 @@ import { MdRecommend } from "react-icons/md";
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, registerables } from "chart.js/auto";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { Doughnut, Line, Bar } from "react-chartjs-2";
 
 ChartJS.register(...registerables);
 ChartJS.defaults.scale.grid.display = false;
