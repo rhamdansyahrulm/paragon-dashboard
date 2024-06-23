@@ -32,7 +32,6 @@ function AgeHijabChart () {
     )
   }, [])
 
-  console.log(AgeHijabChart)
 
   const AgeHijabData = AgeHijabChart.map((row: any) => ({
     label: row.label,
@@ -245,5 +244,58 @@ function CustomerReviewChart () {
   );
 }
 
+function TopCustomerConcern({ titleName, tableData } : {titleName : string, tableData : string}) {
+  const headerSetting = {
+    fontWeight: 'bold',
+    backgroundColor: '#FAA0A0',
+    color: 'white',
+    fontSize: 15
+  };
 
-export { AgeHijabChart, SkinToneBar, SkinTypeChart, CustomerReviewChart }
+  const [tableDataVal, setData] = useState([{}])
+
+  useEffect( () => {
+    fetch("http://localhost:5000/topCustomerConcern").then(
+      res=>res.json()
+    ).then(
+      data=> {
+        switch (tableData) {
+          case 'hairConcern':
+            setData(data.hairConcern)
+            break;
+          case 'bodyConcern':
+            setData(data.bodyConcern)
+            break;
+          case 'skinConcern':
+            setData(data.skinConcern)
+            break;
+        }
+      }
+    )
+  }, [])
+
+  return (
+    <TableContainer sx={{ backgroundColor : 'transparent' }} elevation={0} component={Paper}>
+      <Table aria-label="caption table">
+        <TableHead>
+          <TableRow >
+            <TableCell align = "left" sx={{...headerSetting}}>{titleName}</TableCell>
+            <TableCell  align = "center" sx={{...headerSetting}}>Total</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {tableDataVal.map((row : any) => (
+            <TableRow key={row[0]}>
+              <TableCell component="th" scope="row">
+                {row[0]}
+              </TableCell>
+              <TableCell align="center">{row[1]}</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  );
+}
+
+export { AgeHijabChart, SkinToneBar, SkinTypeChart, CustomerReviewChart, TopCustomerConcern }

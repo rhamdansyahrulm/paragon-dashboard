@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, registerables } from "chart.js/auto";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { AgeHijabChart, SkinToneBar, SkinTypeChart, CustomerReviewChart } from '../constant/chart/CustomerChart'
+import { AgeHijabChart, SkinToneBar, SkinTypeChart, CustomerReviewChart, TopCustomerConcern } from '../constant/chart/CustomerChart'
 
 ChartJS.register(...registerables);
 ChartJS.defaults.scale.grid.display = false;
@@ -36,7 +36,11 @@ function SecondRowCustomerDashboard() {
             <div className='w-[47.5%] h-[40vh] bg-white p-4 rounded shadow-md'>
                 <CustomerReviewChart />
             </div>
-            <div className='w-[47.5%] h-[40vh] bg-white p-4 rounded shadow-md'></div>
+            <div className='w-[47.5%] h-[40vh] bg-white p-4 rounded shadow-md flex flex-row gap-5'>
+                <TopCustomerConcern titleName='Hair Concern' tableData='hairConcern'/>
+                <TopCustomerConcern titleName='Body Concern' tableData='bodyConcern'/>
+                <TopCustomerConcern titleName='Skin Concern' tableData='skinConcern'/>
+            </div>
         </div>
     )
 }

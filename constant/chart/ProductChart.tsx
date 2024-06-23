@@ -323,8 +323,6 @@ function TopTableChart({ titleName, tableData } : {titleName : string, tableData
     )
   }, [])
 
-  console.log(tableDataVal)
-
   return (
     <TableContainer sx={{ backgroundColor : 'transparent' }} elevation={0} component={Paper}>
       <Table aria-label="caption table">

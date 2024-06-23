@@ -90,6 +90,27 @@ def customerAgeAppereance():
     
     return customerAgeAppereance
 
+@app.route('/topCustomerConcern')
+def topCustomerConcern():
+    hairConcern = [['Frozen asd', 159],
+                   ['Ice cream', 237, ],
+                   ['Ice sandwich', 238],
+                   ['Ice cream sandwich', 239],
+                   ['Eclair', 262]]
+
+    bodyConcern = [['Frozen yoghurt', 159],
+                   ['Ice cream', 237, ],
+                   ['Ice sandwich', 238],
+                   ['Ice cream sandwich', 239],
+                   ['Eclair', 262]]
+
+    skinConcern = [['Frozen yoghurt', 159],
+                   ['Ice cream', 237, ],
+                   ['Ice sandwich', 238],
+                   ['Ice cream sandwich', 239],
+                   ['Eclair', 262]]
+    
+    return {'hairConcern': hairConcern, 'bodyConcern': bodyConcern, 'skinConcern': skinConcern}
 
 if __name__ == '__main__':
     app.run(debug=True)
